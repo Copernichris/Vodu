@@ -9,13 +9,21 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <header className="bg-primary text-light mb-4 flex ">
+      <div className="flex-row justify-space-between-lg justify-center align-center">
+
         <div>
+        
           <Link className="text-light" to="/">
             <h1 className="m-0">Tech Thoughts</h1>
           </Link>
-          <p className="m-0">Get into the mind of a programmer.</p>
+          <p className="m-0"><marquee>Get into the mind of a programmer & a gamer...</marquee></p>
+        </div>
+        <div>
+        
+    
+          
+
         </div>
         <div>
           {Auth.loggedIn() ? (
@@ -39,7 +47,9 @@ const Header = () => {
           )}
         </div>
       </div>
+      
     </header>
+    
   );
 };
 
