@@ -11,7 +11,7 @@ const ThoughtList = ({
     return <h3>No Thoughts Yet</h3>;
   }
 
-  return (
+  return (    
     <div>
       {showTitle && <h3>{title}</h3>}
       {thoughts &&
@@ -36,6 +36,7 @@ const ThoughtList = ({
                 </>
               )}
             </h4>
+
             <div className="card-body bg-light p-2">
               <p>{thought.thoughtText}</p>
             </div>
