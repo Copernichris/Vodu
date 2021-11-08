@@ -15,9 +15,8 @@ const thoughtSchema = new Schema({
     trim: true,
   },
   createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+    type: String,
+    default: 0,
   },
   comments: [
     {
@@ -32,9 +31,8 @@ const thoughtSchema = new Schema({
         required: true,
       },
       createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
+        type: String,
+        default: 0,
       },
     },
   ],

@@ -1,8 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
+import ReatctPlayer from 'react-player';
 
-const VideoPage = () => {   
+const VideoPage = ({thoughts}) => {   
+//  thought bubble state state then set timeout
+// toast messages 3rd party
+  
+    const [comments, setComments] = useState('') 
+    const handleComments = ({playedSeconds}) => {
+        console.log({playedSeconds})          
+        const toastThought = thoughts.find(thought => {
+          return (Math.floor(playedSeconds) == thought.createdAt)
+        })
+      if (toastThought){
+        setComments(toastThought.thoughtText)
+      }
+                     
+    }
     return (
-        <iframe width="420" height="315" src="https://www.youtube.com/embed/qrTXTO3FDOY" frameborder="0" allowfullscreen></iframe>
+        <div>
+          <ReatctPlayer
+            url = 'https://www.youtube.com/watch?v=qrTXTO3FDOY'     
+            controls = 'true'      
+            onProgress = {handleComments}
+          />  
+          <p>{comments}</p>     
+        </div>
     );
   };
 export default VideoPage;

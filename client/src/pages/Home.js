@@ -3,9 +3,10 @@ import { useQuery } from '@apollo/client';
 
 import ThoughtList from '../components/ThoughtList';
 import ThoughtForm from '../components/ThoughtForm';
-import VideoPage from '../components/VideoPage';
 
 import { QUERY_THOUGHTS } from '../utils/queries';
+import VideoPage from '../components/VideoPage';
+
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
@@ -15,8 +16,8 @@ const Home = () => {
     <main>
       <div className="flex-row justify-center">
       <div className="flex-row">
-        <VideoPage />    
-        <VideoPage />  
+        <VideoPage
+        thoughts={thoughts} />            
       </div>
         <div
           className="col-12 col-md-10 mb-3 p-3"
@@ -38,5 +39,5 @@ const Home = () => {
     </main>
   );
 };
-
+//thought array state
 export default Home;
