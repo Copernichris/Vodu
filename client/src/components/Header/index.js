@@ -18,10 +18,10 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-primary text-light mb-4 flex ">
+    <header className="bg-primary text-white mb-4 flex ">
       <div className="flex-row justify-space-between-lg justify-center align-center">
         <div>
-          <Link className="text-light" to="/">
+          <Link className="text-white" to="/">
             <h1 className="m-0">VodU</h1>
             <p className="m-0">Get into the mind of a gamer...</p>
           </Link>
@@ -30,9 +30,9 @@ const Header = () => {
         <FormControl variant="standard">
           <Input
             placeholder="Search VodU"
-            className="text-light"
+            className="text-white"
             endAdornment={
-              <InputAdornment position="end" className="text-light">
+              <InputAdornment position="end" className="text-white">
                 <SearchIcon />
               </InputAdornment>
             }
@@ -42,19 +42,24 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="text-light btn" to="/me">
+              <Link className="text-white" id="profile-btn" to="/me">
                 {Auth.getProfile().data.username}'s profile
               </Link>
-              <Link className="text-light btn" variant="text" onClick={logout}>
+              <Link
+                className="text-white"
+                id="logout-btn"
+                variant="text"
+                onClick={logout}
+              >
                 Logout
               </Link>
             </>
           ) : (
             <>
-              <Link variant="text" className="text-light btn" to="/login">
+              <Link id="login-btn" className="text-white" to="/login">
                 Login
               </Link>
-              <Link variant="text" className="text-light btn" to="/signup">
+              <Link id="signup-btn" className="text-white" to="/signup">
                 Signup
               </Link>
             </>
