@@ -1,55 +1,67 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import Auth from '../../utils/auth';
+import React from "react";
+import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
+import { TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import FormControl from "@mui/material/FormControl";
+import Input from "@mui/material/Input";
+import InputAdornment from "@mui/material/InputAdornment";
 
 const Header = () => {
-  const logout = (event) => {
+  const logout = (event, error) => {
     event.preventDefault();
     Auth.logout();
+
+    if (error) {
+      console.log(error);
+    }
   };
+
   return (
     <header className="bg-primary text-light mb-4 flex ">
       <div className="flex-row justify-space-between-lg justify-center align-center">
-
         <div>
-        
           <Link className="text-light" to="/">
-            <h1 className="m-0">Tech Thoughts</h1>
+            <h1 className="m-0">VodU</h1>
+            <p className="m-0">Get into the mind of a gamer...</p>
           </Link>
-          <p className="m-0"><marquee>Get into the mind of a programmer & a gamer...</marquee></p>
         </div>
-        <div>
-        
-    
-          
 
-        </div>
+        <FormControl variant="standard">
+          <Input
+            placeholder="Search VodU"
+            className="text-light"
+            endAdornment={
+              <InputAdornment position="end" className="text-light">
+                <SearchIcon />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
+              <Link className="text-light btn" to="/me">
                 {Auth.getProfile().data.username}'s profile
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <Link className="text-light btn" variant="text" onClick={logout}>
                 Logout
-              </button>
+              </Link>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link variant="text" className="text-light btn" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link variant="text" className="text-light btn" to="/signup">
                 Signup
               </Link>
             </>
           )}
         </div>
       </div>
-      
     </header>
-    
   );
 };
 
