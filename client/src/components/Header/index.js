@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import { TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import FormControl from "@mui/material/FormControl";
-import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
+import { Input } from "@mui/material";
+import { Box } from "@mui/system";
 
 const Header = () => {
   const logout = (event, error) => {
@@ -18,48 +17,43 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-primary text-white mb-4 flex ">
+    <header className="bg-primary text-white mb-4 pt-1 pb-0 flex ">
       <div className="flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-white" to="/">
-            <h1 className="m-0">VodU</h1>
-            <p className="m-0">Get into the mind of a gamer...</p>
+            <h1 className="pl-4">VodU</h1>
           </Link>
         </div>
 
-        <FormControl variant="standard">
+        <Box sx={{ width: 400, maxWidth: "80%," }}>
           <Input
             placeholder="Search VodU"
-            className="text-white"
+            className="text-white form-control mb-1"
+            fullWidth
             endAdornment={
               <InputAdornment position="end" className="text-white">
                 <SearchIcon />
               </InputAdornment>
             }
           />
-        </FormControl>
+        </Box>
 
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="text-white" id="profile-btn" to="/me">
+              <Link className="text-white pr-3" to="/me">
                 {Auth.getProfile().data.username}'s profile
               </Link>
-              <Link
-                className="text-white"
-                id="logout-btn"
-                variant="text"
-                onClick={logout}
-              >
+              <Link className="text-white pr-4" variant="text" onClick={logout}>
                 Logout
               </Link>
             </>
           ) : (
             <>
-              <Link id="login-btn" className="text-white" to="/login">
+              <Link className="text-white pr-3" to="/login">
                 Login
               </Link>
-              <Link id="signup-btn" className="text-white" to="/signup">
+              <Link className="text-white pr-4" to="/signup">
                 Signup
               </Link>
             </>

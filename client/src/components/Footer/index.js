@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="w-100 bg-primary p-2 flex">
-      <div className="flex-row justify-center align-center mb-5">
-        <h5 className="text-white text-center">
+    <footer className="w-100 bg-primary flex">
+      <div className="flex-row justify-center align-center">
+        <h6 className="text-white text-center">
           {" "}
           Made with{" "}
           <span
@@ -15,8 +15,9 @@ const Footer = () => {
           >
             ❤️
           </span>{" "}
-          by the Vodu team. All Rights Reserved
-        </h5>
+          by the <span className="footer-title">VodU</span> team. All Rights
+          Reserved
+        </h6>
       </div>
     </footer>
   );
