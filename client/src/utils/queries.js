@@ -6,38 +6,35 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      vods {
         _id
-        thoughtText
-        createdAt
+        vodUrl        
       }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_VODS = gql`
+  query getVods {
+    vods {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      vodUrl
+      vodAuthor      
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_VOD = gql`
+  query getSingleVod($vodId: ID!) {
+    vod(vodId: $vodId) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      vodUrl
+      vodAuthor      
       comments {
         _id
         commentText
         commentAuthor
-        createdAt
+        timeStamp
       }
     }
   }
@@ -49,11 +46,11 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      vods {
         _id
-        thoughtText
-        thoughtAuthor
-        createdAt
+        vodUrl
+        vodAuthor
+        timeStamp
       }
     }
   }

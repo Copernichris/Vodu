@@ -1,23 +1,18 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
-const thoughtSchema = new Schema({
-  thoughtText: {
+const vodSchema = new Schema({
+  vodUrl: {
     type: String,
-    required: 'You need to leave a thought!',
+    required: 'You need to link a vod!',
     minlength: 1,
     maxlength: 280,
     trim: true,
   },
-  thoughtAuthor: {
+  vodAuthor: {
     type: String,
     required: true,
     trim: true,
-  },
-  createdAt: {
-    type: String,
-    default: 0,
-  },
+  },  
   comments: [
     {
       commentText: {
@@ -30,7 +25,7 @@ const thoughtSchema = new Schema({
         type: String,
         required: true,
       },
-      createdAt: {
+      timeStamp: {
         type: String,
         default: 0,
       },
@@ -38,6 +33,6 @@ const thoughtSchema = new Schema({
   ],
 });
 
-const Thought = model('Thought', thoughtSchema);
+const Vod = model('Vod', vodSchema);
 
-module.exports = Thought;
+module.exports = Vod;
