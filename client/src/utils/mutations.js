@@ -24,13 +24,12 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+export const ADD_VOD = gql`
+  mutation addVod($vodUrl: String!) {
+    addVod(vodUrl: $vodUrl) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      vodUrl
+      vodAuthor      
       comments {
         _id
         commentText
@@ -40,16 +39,15 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+  mutation addComment($vodId: ID!, $commentText: String!) {
+    addComment(vodId: $vodId, commentText: $commentText) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      vodUrl
+      vodAuthor      
       comments {
         _id
         commentText
-        createdAt
+        timeStamp
       }
     }
   }
