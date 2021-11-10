@@ -1,22 +1,22 @@
 const db = require('../config/connection');
-const { User, Thought } = require('../models');
+const { User, Vod } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
+const vodSeeds = require('./vodSeeds.json');
 
 db.once('open', async () => {
   try {
-    await Thought.deleteMany({});
+    await Vod.deleteMany({});
     await User.deleteMany({});
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < thoughtSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+    for (let i = 0; i < vodSeeds.length; i++) {
+      const { _id, vodAuthor } = await Vod.create(vodSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: thoughtAuthor },
+        { username: vodAuthor },
         {
           $addToSet: {
-            thoughts: _id,
+            vods: _id,
           },
         }
       );

@@ -2,8 +2,8 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import ThoughtForm from "../components/ThoughtForm";
-import ThoughtList from "../components/ThoughtList";
+import VodForm from '../components/VodForm';
+import VodList from '../components/VodList';
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
@@ -49,17 +49,22 @@ const Profile = () => {
             {Auth.getProfile().data.username}'s profile
           </h2>
 
-          <div className="col-12 col-md-10">
-            <ThoughtList
-              thoughts={user.thoughts}
-              title={`${user.username}'s thoughts...`}
-              showTitle={false}
-              showUsername={false}
-            />
-          </div>
-          {!userParam && (
-            <div className="col-12 col-md-10 mb-3 ">
-              <ThoughtForm />
+
+        <div className="col-12 col-md-10 mb-5">
+          <VodList
+            vods={user.vods}
+            title={`${user.username}'s vods...`}
+            showTitle={false}
+            showUsername={false}
+          />
+        </div>
+        {!userParam && (
+          <div
+            className="col-12 col-md-10 mb-3 p-3"
+            style={{ border: '1px dotted #1a1a1a' }}
+          >
+            <VodForm />
+
             </div>
           )}
         </div>
