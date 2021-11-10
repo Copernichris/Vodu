@@ -24,36 +24,11 @@ body {
   flex-direction: column;
 }
 
-.footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-#login-btn {
-  margin: 0 8px;
-}
-
-#signup-btn {
-  margin-left: 10px;
-  margin-right: 22px;
-}
-
-#profile-btn {
-  margin: 0 8px;
-}
-
-#logout-btn {
-  margin-left: 10px;
-  margin-right: 22px;
-}
-
 /**
  * Render the `main` element consistently in IE.
  */
 main {
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 114px);
 }
 
 /**
@@ -381,25 +356,43 @@ body {
   min-height: 100%;
 }
 
+/* font-family: 'Barlow Condensed', sans-serif !!!!!!;
+font-family: 'Geo', sans-serif;
+font-family: 'Michroma', sans-serif !!!!;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Sigmar One', cursive;
+font-family: 'Space Grotesk', sans-serif; !!!!!!*/
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  /* font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
-  font-size: 16px;
+    "Segoe UI Symbol"; */
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
   color: #1a1a1a;
 }
 
-h1,
+h1 {
+  /* font-family: "JetBrains Mono", monospace; */
+  font-family: "Michroma", sans-serif;
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+}
+
 h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: "JetBrains Mono", monospace;
-  margin: 0 0 0.5rem;
-  line-height: 1.25;
+h6,
+p {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.footer-title {
+  font-family: "Michroma", sans-serif;
 }
 
 h1 {
