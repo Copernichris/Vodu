@@ -75,12 +75,12 @@ const VodForm = () => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
+            <div className="col-12 col-lg-9 ">
               <textarea
                 name="vodUrl"
                 placeholder="Vod url..."
                 value={vodUrl}
-                className="form-input w-100"
+                className="form-input w-100 bg-dark text-white"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>

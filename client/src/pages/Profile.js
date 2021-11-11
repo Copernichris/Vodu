@@ -93,7 +93,7 @@ const Profile = () => {
       </div>
     </main>
         
-      </Box>
+    </Box>
     </ThemeProvider>
     
   );
