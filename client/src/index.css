@@ -28,7 +28,8 @@ body {
  * Render the `main` element consistently in IE.
  */
 main {
-  min-height: calc(100vh - 114px);
+  height: calc(100vh - 114px);
+  background-color: #1a1a1a;
 }
 
 /**
@@ -497,7 +498,7 @@ a:hover {
 }
 
 .m-4 {
-  margin: 1.375rem !important;
+  margin: 0 !important;
 }
 
 .m-5 {
@@ -1189,7 +1190,7 @@ label form [type="radio"] {
 }
 
 .container {
-  width: 95%;  
+  width: 100%;  
   margin-left: auto;
   margin-right: auto;
 }
