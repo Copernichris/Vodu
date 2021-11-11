@@ -12,7 +12,7 @@
 
 ## Link to Deployed Application
 
-[Deployed Application](https://afternoon-fjord-18183.herokuapp.com/)
+[Deployed Application]()
 
 ## Table of Contents
 

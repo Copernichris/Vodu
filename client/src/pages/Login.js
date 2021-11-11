@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+
 import Auth from "../utils/auth";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -40,12 +48,30 @@ const Login = (props) => {
     });
   };
 
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 500,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
   return (
-    <main className="flex-row justify-center align-center">
-      <div className="col-md-8">
-        <div className="card">
-          <h4 className="card-header bg-black text-white p-3">Login</h4>
-          <div className="card-body">
+    <main>
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="Login form"
+      >
+        <Box sx={style}>
+          <h1 className="bg-black text-white p-3 text-center">Login</h1>
+          <div>
             {data ? (
               <p>
                 Success! You may now head{" "}
@@ -76,6 +102,13 @@ const Login = (props) => {
                 >
                   Login
                 </button>
+                <button
+                  className="btn btn-block text-white mt-1 bg-link"
+                  style={{ cursor: "pointer" }}
+                  onClick={handleClose}
+                >
+                  Close
+                </button>
               </form>
             )}
 
@@ -85,8 +118,8 @@ const Login = (props) => {
               </div>
             )}
           </div>
-        </div>
-      </div>
+        </Box>
+      </Modal>
     </main>
   );
 };
