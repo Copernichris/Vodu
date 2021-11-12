@@ -77,7 +77,7 @@ The goal of the website is to create a reddit/discord like format that is famili
 # Contact Contributors 
 
 - Pam Hammond - [hammondpamelac@gmail.com](mailto:hammondpamelac@gmail.com)
-- Chris - [hammondpamelac@gmail.com](mailto:hammondpamelac@gmail.com)
+- Chris - []()
 - Andy - [Andydchoo@gmail.com](mailto:Andydchoo@gmail.com)
 - Taoufik - [toufikaminew@gmail.com](mailto:toufikaminew@gmail.com)
 - Nick - [Nickhyman465@gmail.com](mailto:Nickhyman465@gmail.com)
