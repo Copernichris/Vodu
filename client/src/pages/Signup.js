@@ -58,8 +58,10 @@ const Signup = () => {
   };
 
   return (
-    <main>
-      <Button onClick={handleOpen}>Open modal</Button>
+    <>
+      <button className="header-buttons text-white pr-4" onClick={handleOpen}>
+        Signup
+      </button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -125,7 +127,7 @@ const Signup = () => {
           </div>
         </Box>
       </Modal>
-    </main>
+    </>
   );
 };
 

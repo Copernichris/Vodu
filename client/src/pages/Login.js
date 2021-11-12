@@ -61,8 +61,10 @@ const Login = (props) => {
   };
 
   return (
-    <main>
-      <Button onClick={handleOpen}>Open modal</Button>
+    <>
+      <button className="header-buttons text-white pr-3" onClick={handleOpen}>
+        Login
+      </button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -120,7 +122,7 @@ const Login = (props) => {
           </div>
         </Box>
       </Modal>
-    </main>
+    </>
   );
 };
 
