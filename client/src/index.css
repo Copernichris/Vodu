@@ -397,6 +397,16 @@ p {
   font-family: "Michroma", sans-serif;
 }
 
+.header-buttons {
+  font-family: "Michroma", sans-serif;
+  background: none;
+  border: none;
+}
+
+.header-buttons:hover {
+  text-decoration: underline;
+}
+
 h1 {
   font-size: 2.25rem;
 }
@@ -1191,7 +1201,7 @@ label form [type="radio"] {
 }
 
 .container {
-  width: 100%;  
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }

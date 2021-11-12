@@ -5,6 +5,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import { Input } from "@mui/material";
 import { Box } from "@mui/system";
+import Login from "../../pages/Login";
+import Signup from "../../pages/Signup";
 
 const Header = () => {
   const logout = (event, error) => {
@@ -50,12 +52,8 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="text-white pr-3" to="/login">
-                Login
-              </Link>
-              <Link className="text-white pr-4" to="/signup">
-                Signup
-              </Link>
+              <Login />
+              <Signup />
             </>
           )}
         </div>
