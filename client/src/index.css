@@ -403,6 +403,12 @@ p {
   border: none;
 }
 
+.comment-login {
+  font-family: "Michroma", sans-serif;
+  background: none;
+  border: none;
+}
+
 .header-buttons:hover {
   text-decoration: underline;
 }

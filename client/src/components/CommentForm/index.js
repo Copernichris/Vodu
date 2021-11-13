@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
+import Login from "../../pages/Login";
+import Signup from "../../pages/Signup";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-import { ADD_COMMENT } from '../../utils/mutations';
+import { ADD_COMMENT } from "../../utils/mutations";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const CommentForm = ({ vodId }) => {
-  const [commentText, setCommentText] = useState('');
+  const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
@@ -24,7 +26,7 @@ const CommentForm = ({ vodId }) => {
         },
       });
 
-      setCommentText('');
+      setCommentText("");
     } catch (err) {
       console.error(err);
     }
@@ -33,7 +35,7 @@ const CommentForm = ({ vodId }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'commentText' && value.length <= 280) {
+    if (name === "commentText" && value.length <= 280) {
       setCommentText(value);
       setCharacterCount(value.length);
     }
@@ -47,7 +49,7 @@ const CommentForm = ({ vodId }) => {
         <>
           <p
             className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
+              characterCount === 280 || error ? "text-danger" : ""
             }`}
           >
             Character Count: {characterCount}/280
@@ -63,7 +65,7 @@ const CommentForm = ({ vodId }) => {
                 placeholder="Add your comment..."
                 value={commentText}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
               ></textarea>
             </div>
@@ -76,9 +78,9 @@ const CommentForm = ({ vodId }) => {
           </form>
         </>
       ) : (
-        <p>
-          You need to be logged in to comment. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        <p className="comment-login text-white">
+          You need to be logged in to comment. <Login />
+          or <Signup />
         </p>
       )}
     </div>
