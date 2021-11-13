@@ -1,42 +1,28 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
-import VideoPage from '../components/VideoPage';
+import VodList from '../components/VodList';
+import VodForm from '../components/VodForm';
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_VODS } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+  const { loading, data } = useQuery(QUERY_VODS);
+  const vods = data?.vods || [];
 
-  return (
-    <main>
-      <div className="flex-row justify-center">
-      <div className="flex-row">
-        <VideoPage />    
-        <VideoPage />  
-      </div>
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >          
-          <ThoughtForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
-      </div>
-    </main>
+  return (    
+    <main>                      
+      <VodForm />       
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <VodList
+            vods={vods}
+            title="Popular Vods"
+          />
+        )}           
+    </main>    
   );
 };
-
+//thought array state
 export default Home;

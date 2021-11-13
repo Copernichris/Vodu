@@ -19,13 +19,18 @@ html {
  */
 body {
   margin: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 /**
  * Render the `main` element consistently in IE.
  */
 main {
-  display: block;
+  min-height: calc(100vh - 114px);
+  height: auto;
+  background-color: #1a1a1a;
 }
 
 /**
@@ -187,9 +192,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -197,9 +202,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -208,9 +213,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -260,8 +265,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type='checkbox'],
-[type='radio'] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -271,8 +276,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -280,7 +285,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type='search'] {
+[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -290,7 +295,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type='search']::-webkit-search-decoration {
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -353,25 +358,59 @@ body {
   min-height: 100%;
 }
 
+/* font-family: 'Barlow Condensed', sans-serif !!!!!!;
+font-family: 'Geo', sans-serif;
+font-family: 'Michroma', sans-serif !!!!;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Sigmar One', cursive;
+font-family: 'Space Grotesk', sans-serif; !!!!!!*/
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
-  font-size: 16px;
+  /* font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol"; */
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
   color: #1a1a1a;
 }
 
-h1,
+h1 {
+  /* font-family: "JetBrains Mono", monospace; */
+  font-family: "Michroma", sans-serif;
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+}
+
 h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: 'JetBrains Mono', monospace;
-  margin: 0 0 0.5rem;
-  line-height: 1.25;
+h6,
+p {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.footer-title {
+  font-family: "Michroma", sans-serif;
+}
+
+.header-buttons {
+  font-family: "Michroma", sans-serif;
+  background: none;
+  border: none;
+}
+
+.comment-login {
+  font-family: "Michroma", sans-serif;
+  background: none;
+  border: none;
+}
+
+.header-buttons:hover {
+  text-decoration: underline;
 }
 
 h1 {
@@ -476,7 +515,7 @@ a:hover {
 }
 
 .m-4 {
-  margin: 1.375rem !important;
+  margin: 0 !important;
 }
 
 .m-5 {
@@ -1144,7 +1183,7 @@ form .form-label {
 
 form .form-input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 1rem;
   color: #1a1a1a;
   background-color: #ffffff;
   margin: 0.625rem 0;
@@ -1157,19 +1196,18 @@ form .form-input.form-input-squared {
   border-radius: 0;
 }
 
-form [type='checkbox'],
-form [type='radio'] {
+form [type="checkbox"],
+form [type="radio"] {
   display: inline-block;
 }
 
-label form [type='checkbox'],
-label form [type='radio'] {
+label form [type="checkbox"],
+label form [type="radio"] {
   display: inline-block;
 }
 
 .container {
-  width: 85%;
-  max-width: 1200px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1259,7 +1297,7 @@ label form [type='radio'] {
   margin-right: -15px;
 }
 
-[class*='col-'] {
+[class*="col-"] {
   position: relative;
   width: 100%;
   padding-right: 15px;

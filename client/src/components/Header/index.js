@@ -1,55 +1,64 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import Auth from '../../utils/auth';
+import React from "react";
+import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
+import SearchIcon from "@mui/icons-material/Search";
+import InputAdornment from "@mui/material/InputAdornment";
+import { Input } from "@mui/material";
+import { Box } from "@mui/system";
+import Login from "../../pages/Login";
+import Signup from "../../pages/Signup";
 
 const Header = () => {
-  const logout = (event) => {
+  const logout = (event, error) => {
     event.preventDefault();
     Auth.logout();
+
+    if (error) {
+      console.log(error);
+    }
   };
+
   return (
-    <header className="bg-primary text-light mb-4 flex ">
+    <header className="bg-primary text-white flex ">
       <div className="flex-row justify-space-between-lg justify-center align-center">
-
         <div>
-        
-          <Link className="text-light" to="/">
-            <h1 className="m-0">Tech Thoughts</h1>
+          <Link className="text-white" to="/">
+            <h1 className="pl-4">VodU</h1>
           </Link>
-          <p className="m-0"><marquee>Get into the mind of a programmer & a gamer...</marquee></p>
         </div>
-        <div>
-        
-    
-          
 
-        </div>
+        <Box sx={{ width: 400, maxWidth: "80%," }}>
+          <Input
+            placeholder="Search VodU"
+            className="text-white form-control mb-1"
+            fullWidth
+            endAdornment={
+              <InputAdornment position="end" className="text-white">
+                <SearchIcon />
+              </InputAdornment>
+            }
+          />
+        </Box>
+
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
+              <Link className="text-white pr-3" to="/me">
                 {Auth.getProfile().data.username}'s profile
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <Link className="text-white pr-4" variant="text" onClick={logout}>
                 Logout
-              </button>
+              </Link>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
+              <Login />
+              <Signup />
             </>
           )}
         </div>
       </div>
-      
     </header>
-    
   );
 };
 

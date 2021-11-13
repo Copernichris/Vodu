@@ -1,23 +1,12 @@
-import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import React from "react";
 
 const Footer = () => {
-  const location = useLocation();
-  const history = useHistory();
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => history.goBack()}
-          >
-            &larr; Go Back
-          </button>
-        )}
-        
-        <marquee>
-          <h4>  Made with{' '}
+    <footer className="w-100 bg-primary flex">
+      <div className="flex-row justify-center align-center">
+        <h6 className="text-white text-center">
+          {" "}
+          Made with{" "}
           <span
             className="emoji"
             role="img"
@@ -25,12 +14,11 @@ const Footer = () => {
             aria-hidden="false"
           >
             ❤️
-          </span>{' '}
-          by the Tech Thoughts team 
-        </h4>
-      </marquee>
+          </span>{" "}
+          by the <span className="footer-title">VodU</span> team. All Rights
+          Reserved
+        </h6>
       </div>
-      &copy; Tech Thoughts team. All Rights Reserved
     </footer>
   );
 };
