@@ -28,7 +28,7 @@ const VideoPage = ({video, comments}) => {
    }, [tips]);
 
     return (      
-      <div style={{ display: 'flex', flexDirection: 'row', }}>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: '20px'}}>
         <div style={{width:'70vw'}}>
           <ReatctPlayer
             url = {url}    
