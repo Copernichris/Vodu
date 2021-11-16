@@ -37,7 +37,7 @@ const vodSchema = new Schema({
       },
       timeStamp: {
         type: String,
-        default: 0,
+        
       },
     },
   ],

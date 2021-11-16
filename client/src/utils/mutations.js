@@ -41,8 +41,8 @@ export const ADD_VOD = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($vodId: ID!, $commentText: String!) {
-    addComment(vodId: $vodId, commentText: $commentText) {
+  mutation addComment($vodId: ID!, $commentText: String!, $timeStamp: String!) {
+    addComment(vodId: $vodId, commentText: $commentText, timeStamp: $timeStamp) {
       _id
       vodUrl
       vodAuthor
