@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -25,11 +25,13 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_VOD = gql`
-  mutation addVod($vodUrl: String!) {
-    addVod(vodUrl: $vodUrl) {
+  mutation addVod($vodUrl: String!, $vodTitle: String!, $description: String!) {
+    addVod(vodUrl: $vodUrl, vodTitle: $vodTitle, description: $description) {
       _id
       vodUrl
-      vodAuthor      
+      vodAuthor
+      description
+      vodTitle
       comments {
         _id
         commentText
@@ -43,7 +45,9 @@ export const ADD_COMMENT = gql`
     addComment(vodId: $vodId, commentText: $commentText, timeStamp: $timeStamp) {
       _id
       vodUrl
-      vodAuthor      
+      vodAuthor
+      description
+      vodTitle
       comments {
         _id
         commentText
