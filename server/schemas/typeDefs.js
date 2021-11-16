@@ -41,7 +41,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addVod(vodUrl: String!): Vod
-    addComment(vodId: ID!, commentText: String!): Vod
+    addComment(vodId: ID!, commentText: String!, timeStamp: String!): Vod
     removeVod(vodId: ID!): Vod
     removeComment(vodId: ID!, commentId: ID!): Vod
   }
