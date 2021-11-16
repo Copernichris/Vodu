@@ -51,6 +51,3 @@ const CommentCard = ({ comment }) => {
         </div>
     );
 };
-
-
-export default CommentCard;
