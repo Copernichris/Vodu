@@ -64,13 +64,13 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { vodId, commentText }, context) => {
+    addComment: async (parent, { vodId, commentText, timeStamp }, context) => {
       if (context.user) {
         return Vod.findOneAndUpdate(
           { _id: vodId },
           {
             $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
+              comments: { commentText, commentAuthor: context.user.username, timeStamp },
             },
           },
           {
