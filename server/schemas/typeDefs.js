@@ -22,6 +22,7 @@ const typeDefs = gql`
     commentText: String
     commentAuthor: String
     timeStamp: String
+    voteCount: Int
   }
 
   type Auth {
@@ -41,6 +42,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addVod(vodUrl: String!): Vod
+    addVotes(vodId: ID!, voteCount: Int): Vod
     addComment(vodId: ID!, commentText: String!): Vod
     removeVod(vodId: ID!): Vod
     removeComment(vodId: ID!, commentId: ID!): Vod

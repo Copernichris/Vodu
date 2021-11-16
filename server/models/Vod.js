@@ -29,6 +29,9 @@ const vodSchema = new Schema({
         type: String,
         default: 0,
       },
+      voteCount: {
+        type: Number,
+      }
     },
   ],
 });

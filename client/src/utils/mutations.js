@@ -47,7 +47,26 @@ export const ADD_COMMENT = gql`
       comments {
         _id
         commentText
+        commentAuthor
         timeStamp
+        voteCount
+      }
+    }
+  }
+`;
+
+export const ADD_VOTES = gql`
+  mutation addVotes($commentId: ID!, $voteCount: Int) {
+    addVotes(commentId: $commentId, voteCount: $voteCount) {
+      _id
+      vodUrl
+      vodAuthor    
+      comments {
+        _id
+        commentText
+        commentAuthor
+        timeStamp
+        voteCount
       }
     }
   }

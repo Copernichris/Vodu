@@ -11,6 +11,7 @@ import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
 
 
 
@@ -58,12 +59,7 @@ const Profile = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box style={{
-        height: '100%',
-        width: '100%',
-        
-      }}>
+    
       <main className="flex-row justify-center align-center">
       <div className="col-md-8">
         <div className="card">
@@ -71,6 +67,13 @@ const Profile = () => {
             {Auth.getProfile().data.username}'s profile
           </h2>
 
+      <Avatar onClick={() => { 
+        console.log("clickable Avatar!");
+      }}
+        src='https://res.cloudinary.com/retro-game-stop/image/upload/v1632282525/ynyjdyopetpzzkrkik6y.png'>
+          
+
+      </Avatar>
 
         <div className="col-12 col-md-10 mb-5">
           <VodList
@@ -93,9 +96,7 @@ const Profile = () => {
       </div>
     </main>
         
-      </Box>
-    </ThemeProvider>
-    
+     
   );
           
 };

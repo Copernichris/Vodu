@@ -11,6 +11,7 @@ import VideoPage from '../components/VideoPage';
 
 import { QUERY_SINGLE_VOD } from '../utils/queries';
 
+
 const SingleVod = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { vodId } = useParams();
@@ -27,6 +28,7 @@ const SingleVod = () => {
     return <div>Loading...</div>;
   }
   return (
+    <main>
     <div>
       <div style={{ height: '90vh', margin: 0, padding: 0 }}>
         <VideoPage
@@ -40,6 +42,7 @@ const SingleVod = () => {
         <CommentForm vodId={vod._id} />
       </div>
     </div>
+    </main>
   );
 };
 

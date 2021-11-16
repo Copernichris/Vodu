@@ -81,6 +81,25 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    addVotes: async (parent, { vodId, voteCount }, context) => {
+      if (context.user) {
+        return Vod.findOneAndUpdate(
+          { _id: vodId },
+          {
+            $addToSet: {
+              comments: { voteCount },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+       
+    
     removeVod: async (parent, { vodId }, context) => {
       if (context.user) {
         const vod = await Vod.findOneAndDelete({

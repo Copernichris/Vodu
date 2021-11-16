@@ -30,7 +30,7 @@ const Home = () => {
           )}
         </div>
       </div>
-    </main>
+      </main>
   );
 };
 //thought array state
