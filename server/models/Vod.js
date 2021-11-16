@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const vodSchema = new Schema({
   vodUrl: {
     type: String,
-    required: 'You need to link a vod!',
+    required: "You need to link a vod!",
     minlength: 1,
     maxlength: 280,
     trim: true,
@@ -12,7 +12,17 @@ const vodSchema = new Schema({
     type: String,
     required: true,
     trim: true,
-  },  
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  vodTitle: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   comments: [
     {
       commentText: {
@@ -27,12 +37,12 @@ const vodSchema = new Schema({
       },
       timeStamp: {
         type: String,
-        default: 0,
+        
       },
     },
   ],
 });
 
-const Vod = model('Vod', vodSchema);
+const Vod = model("Vod", vodSchema);
 
 module.exports = Vod;

@@ -10,8 +10,10 @@ import Auth from "../../utils/auth";
 
 const CommentForm = ({ vodId }) => {
   const [commentText, setCommentText] = useState("");
+  const [timeStamp, setTimeStamp] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
-
+console.log(commentText)
+console.log(timeStamp)
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
@@ -22,14 +24,17 @@ const CommentForm = ({ vodId }) => {
         variables: {
           vodId,
           commentText,
+          timeStamp,
           commentAuthor: Auth.getProfile().data.username,
         },
       });
 
       setCommentText("");
+      setTimeStamp("");
     } catch (err) {
       console.error(err);
     }
+    
   };
 
   const handleChange = (event) => {
@@ -38,6 +43,14 @@ const CommentForm = ({ vodId }) => {
     if (name === "commentText" && value.length <= 280) {
       setCommentText(value);
       setCharacterCount(value.length);
+    }
+  };
+
+  const handleTimeChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "timeStamp") {
+      setTimeStamp(value);     
     }
   };
 
@@ -67,6 +80,16 @@ const CommentForm = ({ vodId }) => {
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="timeStamp"
+                placeholder="what time?"
+                value={timeStamp}
+                className="form-input w-100"
+                style={{ lineHeight: "1.5", resize: "vertical" }}
+                onChange={handleTimeChange}
               ></textarea>
             </div>
 
