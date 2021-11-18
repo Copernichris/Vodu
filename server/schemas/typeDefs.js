@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -13,6 +13,8 @@ const typeDefs = gql`
     _id: ID
     vodUrl: String
     vodAuthor: String
+    description: String
+    vodTitle: String
     timeStamp: String
     comments: [Comment]!
   }
@@ -41,9 +43,17 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+<<<<<<< HEAD
     addVod(vodUrl: String!): Vod
     addVotes(vodId: ID!, voteCount: Int): Vod
     addComment(vodId: ID!, commentText: String!): Vod
+=======
+
+    addVod(vodUrl: String!, vodTitle: String!, description: String!): Vod
+    
+    addComment(vodId: ID!, commentText: String!, timeStamp: String!): Vod
+
+>>>>>>> 17bbc0a8e57f1e5e203e9aec37740d98f0ad351b
     removeVod(vodId: ID!): Vod
     removeComment(vodId: ID!, commentId: ID!): Vod
   }

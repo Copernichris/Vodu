@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -8,7 +8,7 @@ export const QUERY_USER = gql`
       email
       vods {
         _id
-        vodUrl        
+        vodUrl
       }
     }
   }
@@ -19,7 +19,9 @@ export const QUERY_VODS = gql`
     vods {
       _id
       vodUrl
-      vodAuthor      
+      vodAuthor
+      description
+      vodTitle
     }
   }
 `;
@@ -29,7 +31,7 @@ export const QUERY_SINGLE_VOD = gql`
     vod(vodId: $vodId) {
       _id
       vodUrl
-      vodAuthor      
+      vodAuthor
       comments {
         _id
         commentText

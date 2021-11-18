@@ -1,12 +1,27 @@
 [
   {
-    "username": "Brian Kernighan",
-    "email": "bkernighan@techfriends.dev",
-    "password": "password01"
+    "username": "SmashGuy",
+    "email": "smashking@mail.com",
+    "password": "password"
   },
   {
-    "username": "Max Kanat-Alexander",
-    "email": "mkanatalexander@techfriends.dev",
+    "username": "Draven1Trick",
+    "email": "draven1trick@mail.com",
     "password": "password02"
+  },
+  {
+    "username": "xX360n0sc0p3Xx",
+    "email": "trickshot@mail.com",
+    "password": "password03"
+  },
+  {
+    "username": "Dynasty",
+    "email": "dynasty@mail.com",
+    "password": "password04"
+  },
+  {
+    "username": "Pro Gamer Man",
+    "email": "progamerman@mail.com",
+    "password": "password05"
   }
 ]

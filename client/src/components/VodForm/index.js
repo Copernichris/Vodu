@@ -9,6 +9,8 @@ import Auth from "../../utils/auth";
 
 const VodForm = () => {
   const [vodUrl, setVodUrl] = useState("");
+  const [vodTitle, setVodTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -42,9 +44,13 @@ const VodForm = () => {
         variables: {
           vodUrl,
           vodAuthor: Auth.getProfile().data.username,
+          vodTitle,
+          description,
         },
       });
 
+      setVodTitle("");
+      setDescription("");
       setVodUrl("");
     } catch (err) {
       console.error(err);
@@ -57,6 +63,22 @@ const VodForm = () => {
     if (name === "vodUrl" && value.length <= 280) {
       setVodUrl(value);
       setCharacterCount(value.length);
+    }
+  };
+
+  const handleDescriptionChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "description") {
+      setDescription(value);
+    }
+  };
+
+  const handleTitleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "vodTitle") {
+      setVodTitle(value);
     }
   };
 
@@ -75,19 +97,33 @@ const VodForm = () => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9 ">
-              <textarea
-                name="vodUrl"
-                placeholder="Vod url..."
-                value={vodUrl}
-                className="form-input w-100 bg-dark text-white"
-                style={{ lineHeight: "1.5", resize: "vertical" }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
+            <input
+              name="vodUrl"
+              placeholder="Vod url..."
+              value={vodUrl}
+              className="form-input bg-dark text-white"
+              style={{ lineHeight: ".5", resize: "vertical" }}
+              onChange={handleChange}
+            ></input>
+            <input
+              name="vodTitle"
+              placeholder="Title"
+              value={vodTitle}
+              className="form-input bg-dark text-white"
+              style={{ lineHeight: ".5", resize: "vertical" }}
+              onChange={handleTitleChange}
+            ></input>
+            <textarea
+              name="description"
+              placeholder="Description"
+              value={description}
+              className="form-input bg-dark text-white"
+              style={{ lineHeight: "1.5", resize: "vertical" }}
+              onChange={handleDescriptionChange}
+            ></textarea>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+              <button className="btn bg-primary text-white py-3" type="submit">
                 Add Vod
               </button>
             </div>
