@@ -18,6 +18,30 @@ const VideoPage = ({ video, comments }) => {
     if (myTips) {
       setTips(myTips.commentText);
     }
+    useEffect(() => {
+      if (isFirstRender.current) {
+        isFirstRender.current = false 
+        return;
+      }
+      notify();
+   }, [tips]);
+
+    return (      
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: '20px'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: "96%", height: "54%"}}>
+          <ReatctPlayer
+            url = {url}    
+            controls = 'true'      
+            onProgress = {handleComments} 
+            width = '100%'
+            height = '80vh'
+          /> 
+        </div>
+        <div>          
+          <ToastContainer/>
+        </div>            
+      </div>                                       
+    );
   };
   useEffect(() => {
     if (isFirstRender.current) {

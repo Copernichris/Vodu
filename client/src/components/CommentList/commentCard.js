@@ -1,28 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import CommentList from './index.js';
+import Button from '@material-ui/core/Button';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
 
 const CommentCard = ({ comment }) => {
     const [count, setCount] = useState(0);
     
     return (
-        <div key={comment._id} className="flex-row col-12 mb-3 pb-3">
+        <div key={comment._id} style={
+            {
+                display: 'flex',
+                flexDirection: 'row', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                paddingTop: '10px',
+                width: '100vw',
+                paddingBottom: '20px'
+            }}>
             {/* Adding upvote system. Still in progress. Need to add counter function*/}
-            <div className="pt-2">
-                {/* Use onClick={} for function */}
-                <button className="upvote mb-0" onClick={() => setCount(count + 1)}>
-                ^
-                </button>
-                <h5 className="mb-0 pb-1 pt-1">
+            {/* Mui design for upvotes */}
+            <Stack direction="column" justifyContent="center" alignItems="center" spacing={1} style={{paddingRight: "10px"}}>
+                <Button variant='contained' color="primary" size="small" className="upvote" onClick={() => setCount(count + 1)}>
+                    <ThumbUpAltIcon />
+                </Button>
+                <h5 style={{marginBottom: '0px', padding: '1px 0px 1px 0px', color: '#99AAB5'}}>
                 {count}
                 </h5>
-                <button className="downvote" onClick={() => setCount(count - 1)}>
-                v
-                </button>
-            </div>
+                <Button 
+                    variant='contained' 
+                    color="primary" 
+                    size="small" 
+                    className="downvote" 
+                    onClick={() => setCount(count - 1)}
+                >
+                    <ThumbDownAltIcon />
+                </Button>
+            </Stack>
             {/* End of Upvote changes */}
-            <div className="p-3 bg-dark text-light">
+            <div style={{paddingLeft: '20px', paddingBottom: '20px', color: 'white', backgroundColor: '#5865F2', borderRadius: '15px', width: '80%'}}>
                 <h5 className="card-header">
-                {comment.commentAuthor} commented{' '}
+                {comment.commentAuthor} commented {' '}
                 <span style={{ fontSize: '0.825rem' }}>
                     at {comment.timeStamp}
                 </span>
@@ -32,6 +52,5 @@ const CommentCard = ({ comment }) => {
         </div>
     );
 };
-
 
 export default CommentCard;
