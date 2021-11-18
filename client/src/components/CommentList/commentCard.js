@@ -18,10 +18,11 @@ const CommentCard = ({ comment }) => {
                 alignItems: 'center', 
                 paddingTop: '10px',
                 width: '100vw',
+                paddingBottom: '20px'
             }}>
             {/* Adding upvote system. Still in progress. Need to add counter function*/}
             {/* Mui design for upvotes */}
-            <Stack direction="column" justifyContent="center" alignItems="center" spacing={1}>
+            <Stack direction="column" justifyContent="center" alignItems="center" spacing={1} style={{paddingRight: "10px"}}>
                 <Button variant='contained' color="primary" size="small" className="upvote" onClick={() => setCount(count + 1)}>
                     <ThumbUpAltIcon />
                 </Button>
@@ -39,9 +40,9 @@ const CommentCard = ({ comment }) => {
                 </Button>
             </Stack>
             {/* End of Upvote changes */}
-            <div style={{paddingLeft: '20px', paddingBottom: '20px', color: 'white', backgroundColor: '#5865F2', borderRadius: '5px', width: '80%'}}>
+            <div style={{paddingLeft: '20px', paddingBottom: '20px', color: 'white', backgroundColor: '#5865F2', borderRadius: '15px', width: '80%'}}>
                 <h5 className="card-header">
-                {comment.commentAuthor} commented{' '}
+                {comment.commentAuthor} commented {' '}
                 <span style={{ fontSize: '0.825rem' }}>
                     at {comment.timeStamp}
                 </span>
@@ -51,3 +52,5 @@ const CommentCard = ({ comment }) => {
         </div>
     );
 };
+
+export default CommentCard;
