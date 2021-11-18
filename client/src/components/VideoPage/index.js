@@ -16,8 +16,9 @@ const VideoPage = ({ video, comments }) => {
       return Math.floor(playedSeconds) == comment.timeStamp;
     });
     if (myTips) {
-      setTips(myTips.commentText);
-    }
+      setTips(myTips.commentText);  
+    } 
+  }; 
     useEffect(() => {
       if (isFirstRender.current) {
         isFirstRender.current = false 
@@ -29,7 +30,7 @@ const VideoPage = ({ video, comments }) => {
     return (      
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: '20px'}}>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: "96%", height: "54%"}}>
-          <ReatctPlayer
+          <ReactPlayer
             url = {url}    
             controls = 'true'      
             onProgress = {handleComments} 
@@ -42,33 +43,5 @@ const VideoPage = ({ video, comments }) => {
         </div>            
       </div>                                       
     );
-  };
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    notify();
-  }, [tips]);
-
-  return (
-    <div
-      className="pt-4 justify-center"
-      style={{ display: "flex", flexDirection: "row", paddingBottom: 0 }}
-    >
-      <div style={{ width: "60vw" }}>
-        <ReactPlayer
-          url={url}
-          controls="true"
-          onProgress={handleComments}
-          width="100%"
-          height="70vh"
-        />
-      </div>
-      <div>
-        <ToastContainer />
-      </div>
-    </div>
-  );
-};
+  }; 
 export default VideoPage;
