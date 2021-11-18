@@ -2,20 +2,15 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import VodForm from '../components/VodForm';
-import VodList from '../components/VodList';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box'
+import VodForm from "../components/VodForm";
+import VodList from "../components/VodList";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-
-
-  
-
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -27,10 +22,9 @@ const Profile = () => {
   //Dark Theme
   const theme = createTheme({
     palette: {
-      type: 'dark',
-      
+      type: "dark",
     },
-})
+  });
 
   const user = data?.me || data?.user || {};
   // redirect to personal profile page if username is yours
@@ -44,7 +38,7 @@ const Profile = () => {
 
   if (!user?.username) {
     return (
-      <main className="flex-row justify-center align-center">
+      <div className="flex-row justify-center align-center">
         <div className="col-8">
           <div className="card">
             <h4 className="text-center p-3 mb-2 mt-2">
@@ -53,51 +47,47 @@ const Profile = () => {
             </h4>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <Box style={{
-        height: '100%',
-        width: '100%',
-        
-      }}>
-      <main className="flex-row justify-center align-center">
-      <div className="col-md-8">
-        <div className="card">
-          <h2 className="card-header bg-black text-center text-white p-3 mb-2">
-            {Auth.getProfile().data.username}'s profile
-          </h2>
+      <Box
+        style={{
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <div className="flex-row justify-center align-center">
+          <div className="col-md-8">
+            <div className="card">
+              <h2 className="card-header bg-black text-center text-white p-3 mb-2">
+                {Auth.getProfile().data.username}'s profile
+              </h2>
 
-
-        <div className="col-12 col-md-10 mb-5">
-          <VodList
-            vods={user.vods}
-            title={`${user.username}'s vods...`}
-            showTitle={false}
-            showUsername={false}
-          />
-        </div>
-        {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: '1px dotted #1a1a1a' }}
-          >
-            <VodForm />
-
+              <div className="col-12 col-md-10 mb-5">
+                <VodList
+                  vods={user.vods}
+                  title={`${user.username}'s vods...`}
+                  showTitle={false}
+                  showUsername={false}
+                />
+              </div>
+              {!userParam && (
+                <div
+                  className="col-12 col-md-10 mb-3 p-3"
+                  style={{ border: "1px dotted #1a1a1a" }}
+                >
+                  <VodForm />
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
-      </div>
-    </main>
-        
-    </Box>
+      </Box>
     </ThemeProvider>
-    
   );
-          
 };
 
 export default Profile;

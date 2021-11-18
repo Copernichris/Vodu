@@ -3,7 +3,11 @@ import CommentCard from "./commentCard.js";
 
 const CommentList = ({ comments = [] }) => {
   if (!comments.length) {
-    return <h3 className="text-white">No Comments Yet</h3>;
+    return (
+      <div style={{ backgroundColor: "#1a1a1a" }}>
+        <h3 className="text-white">No Comments Yet</h3>
+      </div>
+    );
   }
 
   return (
