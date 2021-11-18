@@ -1,14 +1,14 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Vod } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Vod } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('vods');
+      return User.find().populate("vods");
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('vods');
+      return User.findOne({ username }).populate("vods");
     },
     vods: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -19,9 +19,9 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('vods');
+        return User.findOne({ _id: context.user._id }).populate("vods");
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 
@@ -35,42 +35,44 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError("No user found with this email address");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(user);
 
       return { token, user };
     },
-    addVod: async (parent, { vodUrl }, context) => {
+    addVod: async (parent, { vodUrl, vodTitle, description }, context) => {
       if (context.user) {
         const vod = await Vod.create({
           vodUrl,
           vodAuthor: context.user.username,
+          vodTitle,
+          description,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { vods: vod._id } }
+          { $addToSet: { vods: vod._id, vodTitle, description } }
         );
 
         return vod;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
-    addComment: async (parent, { vodId, commentText }, context) => {
+    addComment: async (parent, { vodId, commentText, timeStamp }, context) => {
       if (context.user) {
         return Vod.findOneAndUpdate(
           { _id: vodId },
           {
             $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
+              comments: { commentText, commentAuthor: context.user.username, timeStamp },
             },
           },
           {
@@ -79,7 +81,7 @@ const resolvers = {
           }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     removeVod: async (parent, { vodId }, context) => {
       if (context.user) {
@@ -95,7 +97,7 @@ const resolvers = {
 
         return vod;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     removeComment: async (parent, { vodId, commentId }, context) => {
       if (context.user) {
@@ -112,7 +114,7 @@ const resolvers = {
           { new: true }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };

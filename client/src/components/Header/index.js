@@ -1,12 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import SearchIcon from "@mui/icons-material/Search";
-import InputAdornment from "@mui/material/InputAdornment";
-import { Input } from "@mui/material";
-import { Box } from "@mui/system";
 import Login from "../../pages/Login";
 import Signup from "../../pages/Signup";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   const logout = (event, error) => {
@@ -27,18 +24,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <Box sx={{ width: 400, maxWidth: "80%," }}>
-          <Input
-            placeholder="Search VodU"
-            className="text-white form-control mb-1"
-            fullWidth
-            endAdornment={
-              <InputAdornment position="end" className="text-white">
-                <SearchIcon />
-              </InputAdornment>
-            }
-          />
-        </Box>
+        <SearchBar />
 
         <div>
           {Auth.loggedIn() ? (
