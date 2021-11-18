@@ -12,8 +12,8 @@ const CommentForm = ({ vodId }) => {
   const [commentText, setCommentText] = useState("");
   const [timeStamp, setTimeStamp] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
-console.log(commentText)
-console.log(timeStamp)
+  console.log(commentText);
+  console.log(timeStamp);
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
@@ -34,7 +34,6 @@ console.log(timeStamp)
     } catch (err) {
       console.error(err);
     }
-    
   };
 
   const handleChange = (event) => {
@@ -50,18 +49,18 @@ console.log(timeStamp)
     const { name, value } = event.target;
 
     if (name === "timeStamp") {
-      setTimeStamp(value);     
+      setTimeStamp(value);
     }
   };
 
   return (
     <div>
-      <h4>Create Comment</h4>
+      <h4 className="text-white">Create Comment</h4>
 
       {Auth.loggedIn() ? (
         <>
           <p
-            className={`m-0 ${
+            className={`m-0 text-white ${
               characterCount === 280 || error ? "text-danger" : ""
             }`}
           >
@@ -73,23 +72,23 @@ console.log(timeStamp)
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
+              <input
+                name="timeStamp"
+                placeholder="What time?"
+                value={timeStamp}
+                className="form-input w-100"
+                style={{ lineHeight: "1", resize: "vertical" }}
+                onChange={handleTimeChange}
+              ></input>
+            </div>
+            <div className="col-12 col-lg-9">
               <textarea
                 name="commentText"
-                placeholder="Add your comment..."
+                placeholder="Add a comment..."
                 value={commentText}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="timeStamp"
-                placeholder="what time?"
-                value={timeStamp}
-                className="form-input w-100"
-                style={{ lineHeight: "1.5", resize: "vertical" }}
-                onChange={handleTimeChange}
               ></textarea>
             </div>
 
