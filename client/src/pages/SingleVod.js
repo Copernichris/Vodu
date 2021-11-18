@@ -28,14 +28,14 @@ const SingleVod = () => {
   }
   return (
     <main>
-      <div style={{ height: "90vh", margin: 0, padding: 0 }}>
+      <div style={{ marginBottom: 100 }}>
         <VideoPage comments={vod.comments} video={vod} />
       </div>
       <div>
-        <CommentList comments={vod.comments} />
+        <CommentForm vodId={vod._id} />
       </div>
       <div>
-        <CommentForm vodId={vod._id} />
+        <CommentList comments={vod.comments} />
       </div>
     </main>
   );
