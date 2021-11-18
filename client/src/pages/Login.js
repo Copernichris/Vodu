@@ -112,8 +112,10 @@ const Login = (props) => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
+              <div className="my-3 bg-danger text-white p-2">
+                <p className="justify-center align-center">
+                  Something went wrong!
+                </p>
               </div>
             )}
           </div>

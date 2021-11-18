@@ -60,17 +60,17 @@ const VodForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "vodUrl" && value.length <= 280) {
+    if (name === "vodUrl") {
       setVodUrl(value);
-      setCharacterCount(value.length);
     }
   };
 
   const handleDescriptionChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "description") {
+    if (name === "description" && value.length <= 280) {
       setDescription(value);
+      setCharacterCount(value.length);
     }
   };
 
@@ -83,61 +83,79 @@ const VodForm = () => {
   };
 
   return (
-    <div>
+    <>
       {Auth.loggedIn() ? (
-        <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? "text-danger" : ""
-            }`}
-          >
-            Character Count: {characterCount}/280
-          </p>
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <input
-              name="vodUrl"
-              placeholder="Vod url..."
-              value={vodUrl}
-              className="form-input bg-dark text-white"
-              style={{ lineHeight: ".5", resize: "vertical" }}
-              onChange={handleChange}
-            ></input>
-            <input
-              name="vodTitle"
-              placeholder="Title"
-              value={vodTitle}
-              className="form-input bg-dark text-white"
-              style={{ lineHeight: ".5", resize: "vertical" }}
-              onChange={handleTitleChange}
-            ></input>
-            <textarea
-              name="description"
-              placeholder="Description"
-              value={description}
-              className="form-input bg-dark text-white"
-              style={{ lineHeight: "1.5", resize: "vertical" }}
-              onChange={handleDescriptionChange}
-            ></textarea>
-
-            <div className="col-12 col-lg-3">
-              <button className="btn bg-primary text-white py-3" type="submit">
-                Add Vod
-              </button>
-            </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
+        <div className="form-section justify-center align-center">
+          <div className="form-wrapper">
+            <h3 className="vod-form-input text-center text-white">
+              {" "}
+              Add a Vod{" "}
+            </h3>
+            <form
+              className="flex-column justify-center align-center"
+              onSubmit={handleFormSubmit}
+            >
+              <div className="form-group flex-row align-center justify-center">
+                <label className="vod-form-label text-white">VOD URL</label>
+                <input
+                  name="vodUrl"
+                  value={vodUrl}
+                  className="vod-form-input w-100 bg-dark text-white"
+                  style={{ lineHeight: ".5" }}
+                  onChange={handleChange}
+                ></input>
               </div>
-            )}
-          </form>
-        </>
+              <div className="form-group flex-row align-center justify-center">
+                <label className="vod-form-label text-white">Title</label>
+                <input
+                  name="vodTitle"
+                  value={vodTitle}
+                  className="vod-form-input w-100 bg-dark text-white"
+                  style={{ lineHeight: ".5" }}
+                  onChange={handleTitleChange}
+                ></input>
+              </div>
+              <div className="form-group flex-row align-center justify-center">
+                <label className="vod-form-label text-white">Description</label>
+                <textarea
+                  name="description"
+                  value={description}
+                  className="vod-form-input w-100 bg-dark text-white"
+                  style={{ lineHeight: "1.25", resize: "vertical" }}
+                  onChange={handleDescriptionChange}
+                ></textarea>
+                <p
+                  className={`m-0 ${
+                    characterCount === 280 || error
+                      ? "text-danger"
+                      : "text-white vod-form-label form-description-label"
+                  }`}
+                >
+                  Character Count: {characterCount}/280
+                </p>
+              </div>
+              <div className="pt-1justify-center align-center flex-row">
+                <button
+                  className="add-vod-btn bg-primary text-white"
+                  type="submit"
+                >
+                  Add Vod
+                </button>
+              </div>
+              {error && (
+                <div className="my-3 bg-danger text-white p-2">
+                  <p className="justify-center align-center">
+                    Something went wrong!
+                  </p>
+                </div>
+              )}
+            </form>
+          </div>
+        </div>
       ) : (
         <p className="text-white">Please login or signup to get started.</p>
       )}
-    </div>
+    </>
   );
 };
 
