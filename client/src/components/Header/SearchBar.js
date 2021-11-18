@@ -12,7 +12,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
     e.preventDefault();
   };
 
-  {
+  // {
     /* <Box sx={{ width: 400, maxWidth: "80%," }}>
           <Input
             placeholder="Search VodU"
@@ -25,7 +25,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
             }
           />
         </Box> */
-  }
+  // }
 
   return (
     <Box sx={{ width: 300, maxWidth: "100%," }}>
