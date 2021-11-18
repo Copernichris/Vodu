@@ -1,10 +1,71 @@
 [
   {
-    "vodUrl": "https://www.youtube.com/watch?v=awXUi_tcmEg",
-    "vodAuthor": "Brian Kernighan"
+    "vodUrl": "https://www.youtube.com/watch?v=maQGL79Bsp8",
+    "vodAuthor": "SmashGuy",
+    "description": "Good set of high level fox vs falcon. N0ne shows some interesting options to cover tech habits and edgeguard situations",
+    "vodTitle": "N0ne vs IBDW SSC 2019",
+    "comments": [
+      {
+        "commentText": "Nair is risky at this percent, maybe could have buffered roll after realising the fox down tilt couldn't be CCd",
+        "commentAuthor": "Draven1Trick",
+        "timeStamp": "16"
+      },
+
+      {
+        "commentText": "IBDW has been CCing alot already, maybe could have stayed grounded after upair to CC grab instead of jumping for a knee",
+        "commentAuthor": "Draven1Trick",
+        "timeStamp": "21"
+      }
+    ]
   },
   {
-    "vodUrl": "https://www.youtube.com/watch?v=EjNX4PfKvv4&t=51s",
-    "vodAuthor": "Max Kanat-Alexander"
-  } 
+    "vodUrl": "https://www.youtube.com/watch?v=Cc4i-BQtPJo",
+    "vodAuthor": "Draven1Trick",
+    "description": "Hanssama is one of the more well known HoB draven players. Good item selection based on enemy team comp.",
+    "vodTitle": "Hanssama Draven with Thresh Support"
+  },
+  {
+    "vodUrl": "https://www.youtube.com/watch?v=8PUAcgpQs3E",
+    "vodAuthor": "xX360n0sc0p3Xx",
+    "description": "I play call of duty mostly and would appreciate insight on the decision making that goes into csgo. I understand the mechanics of the game but feel lost in ranked.",
+    "vodTitle": "High Level CSGO",
+    "comments": [
+      {
+        "commentText": "nice Knife skin",
+        "commentAuthor": "Draven1Trick",
+        "timeStamp": "3"
+      },
+
+      {
+        "commentText": "CT did well to play slow and go for headshots, usps is way more acurate and deadly than T sided glock, great trade for CT",
+        "commentAuthor": "Draven1Trick",
+        "timeStamp": "13"
+      }
+    ]
+  },
+  {
+    "vodUrl": "https://www.youtube.com/watch?v=-0YcBekz83I",
+    "vodAuthor": "Dynasty",
+    "description": "Malzahar is an insane unit in this game. Some of the rolls were lucky but I'm unsure about positioning and item choices.",
+    "vodTitle": "TFT Mutant Malzahar Build",
+    "comments": [
+      {
+        "commentText": "click faster and a little closer to the champ you want for better chance at your unit",
+        "commentAuthor": "Draven1Trick",
+        "timeStamp": "4"
+      },
+
+      {
+        "commentText": "ususally holding on to 3 costs is risky but malz is so strong",
+        "commentAuthor": "Draven1Trick",
+        "timeStamp": "26"
+      }
+    ]
+  },
+  {
+    "vodUrl": "https://www.youtube.com/watch?v=C74Md2yIYCc",
+    "vodAuthor": "Pro Gamer Man",
+    "description": "Gen dealt with Knee's obnoxious steve pressure really well here. Good set to view to learn about timing mixups and pressure.",
+    "vodTitle": "Steve(KNEE) VS Fahkumram(GEN)"   
+  }
 ]
