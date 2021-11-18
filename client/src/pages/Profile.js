@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import ProfileCardLeft from "../components/ProfileCard/CardContent";
 import ProfileCardRight from "../components/ProfileCard/VideoCardContent";
 
