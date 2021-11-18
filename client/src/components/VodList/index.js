@@ -18,7 +18,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const VodList = ({ vods, title, showTitle = true, showUsername = true }) => {
   if (!vods.length) {
-    return <h3>No Vods</h3>;
+    return (
+      <div className="justify-center align-center">
+        <h3 className="text-white text-center">No Vods</h3>
+      </div>
+    );
   }
   const darkTheme = createTheme({
     palette: {
@@ -42,11 +46,14 @@ const VodList = ({ vods, title, showTitle = true, showUsername = true }) => {
                 >
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      <Link to={`/vods/${vod._id}`}>
+                      <Link className="purple-links" to={`/vods/${vod._id}`}>
                         {vod.vodTitle} <br></br>
                       </Link>
                       {showUsername ? (
-                        <Link to={`/profiles/${vod.vodAuthor}`}>
+                        <Link
+                          className="purple-links"
+                          to={`/profiles/${vod.vodAuthor}`}
+                        >
                           <span style={{ fontSize: "1rem" }}>
                             {vod.vodAuthor}
                           </span>

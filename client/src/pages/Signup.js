@@ -118,8 +118,10 @@ const Signup = () => {
             )}
 
             {error && (
-              <div className="mt-2 pb-2 pt-2 text-center bg-danger text-white">
-                {error.message}
+              <div className="my-3 bg-danger text-white p-2">
+                <p className="justify-center align-center">
+                  Something went wrong!
+                </p>
               </div>
             )}
           </div>

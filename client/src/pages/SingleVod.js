@@ -27,7 +27,7 @@ const SingleVod = () => {
     return <div>Loading...</div>;
   }
   return (
-    <main>
+    <>
       <div style={{ marginBottom: 100 }}>
         <VideoPage comments={vod.comments} video={vod} />
       </div>
@@ -37,7 +37,7 @@ const SingleVod = () => {
       <div>
         <CommentList comments={vod.comments} />
       </div>
-    </main>
+    </>
   );
 };
 
