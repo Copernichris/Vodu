@@ -1,13 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import CommentList from './index.js';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
+
 
 const CommentCard = ({ comment }) => {
     const [count, setCount] = useState(0);
+    // const [addVotes, { error }] = useMutation(ADD_VOTES);
+
+    // useEffect(() => { }, [count])
+    
+    // const updateCount = async () => {
+    //     setCount(count + 1)
+    //     await addVotes({
+    //         variables: { 
+    //             vodId: comment._id,
+    //             voteCount: count,
+    //         }
+    //     })
+    // }
     
     return (
         <div key={comment._id} style={

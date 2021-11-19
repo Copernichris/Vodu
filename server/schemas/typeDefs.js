@@ -24,6 +24,7 @@ const typeDefs = gql`
     commentText: String
     commentAuthor: String
     timeStamp: String
+    voteCount: Int
   }
 
   type Auth {

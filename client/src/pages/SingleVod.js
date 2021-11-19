@@ -11,6 +11,7 @@ import VideoPage from "../components/VideoPage";
 
 import { QUERY_SINGLE_VOD } from "../utils/queries";
 
+
 const SingleVod = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { vodId } = useParams();
