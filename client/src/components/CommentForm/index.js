@@ -101,7 +101,7 @@ const CommentForm = ({ vodId }) => {
                 className="add-vod-btn bg-primary text-white"
                 type="submit"
               >
-                Add Vod
+                Add Comment
               </button>
             </div>
             {error && (
