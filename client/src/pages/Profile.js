@@ -1,17 +1,15 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import { createTheme } from "@mui/material/styles";
 import ProfileCardLeft from "../components/ProfileCard/CardContent";
 import ProfileCardRight from "../components/ProfileCard/VideoCardContent";
+import { QUERY_VODS } from "../utils/queries";
+import { useQuery } from "@apollo/client";
 
 const Profile = () => {
-  //Dark Theme
-  const theme = createTheme({
-    palette: {
-      type: "dark",
-    },
-  });
-
+ 
+  const { loading, data } = useQuery(QUERY_VODS);
+  const vods = data?.vods || [];
+  
   return (
     <main className="flex-row justify-center align-center">
       <Grid container spacing={2}>
@@ -21,7 +19,7 @@ const Profile = () => {
 
         {/* this section controls the right side of the profile page. (Vods & Vod uploads) */}
         <Grid item xs={6} sx={{ display: "flex", flexDirection: "column" }}>
-          <ProfileCardRight />
+          <ProfileCardRight vods={vods} title="Popular Vods"/>
         </Grid>
       </Grid>
     </main>
