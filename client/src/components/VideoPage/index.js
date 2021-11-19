@@ -28,14 +28,14 @@ const VideoPage = ({ video, comments }) => {
    }, [tips]);
 
     return (      
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: '20px', width: '100vw'}}>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: '20px'}}>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: "96%", height: "54%"}}>
           <ReactPlayer
             url = {url}    
             controls = 'true'      
             onProgress = {handleComments} 
-            // width = '100%'
-            // height = '80vh'
+            width = '100%'
+            height = '80vh'
           /> 
         </div>
         <div>          
