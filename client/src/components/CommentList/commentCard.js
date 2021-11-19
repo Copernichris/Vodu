@@ -28,8 +28,7 @@ const CommentCard = ({ comment }) => {
                 flexDirection: 'row', 
                 justifyContent: 'center', 
                 alignItems: 'center', 
-                paddingTop: '10px',
-                width: '100vw',
+                paddingTop: '10px',                
                 paddingBottom: '20px'
             }}>
             {/* Adding upvote system. Still in progress. Need to add counter function*/}
