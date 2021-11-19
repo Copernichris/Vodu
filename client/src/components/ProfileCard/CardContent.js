@@ -8,7 +8,7 @@ import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Avatar from "@mui/material/Avatar";
-
+import VodForm from "../VodForm/index";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -48,8 +48,8 @@ const ProfileLeftSideContent = () => {
       </main>
     );
   }
-    
-
+  
+  
   return (
     <Card sx={{maxWidth: 900, padding: 0, marginLeft: "135px", marginTop: "35px", backgroundColor: "#3e34a0", color: "white", align: "center"}}>
       <CardContent>
@@ -64,11 +64,11 @@ const ProfileLeftSideContent = () => {
             ></Avatar>
         </Typography>
         <Typography variant="body2" color="white" component="p">
-          This Card's children are wrapped in a CardContent component, which
-          adds 16px of padding around the edges. The last CardContent in a group
-          of children will get 24px of padding on the bottom.
+            
         </Typography>
-        
+        <Typography variant="body2" color="white" component="p">
+        <VodForm />
+        </Typography>
       </CardContent>
     </Card>
   );
