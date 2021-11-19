@@ -68,6 +68,7 @@ const ProfileLeftSideContent = () => {
           adds 16px of padding around the edges. The last CardContent in a group
           of children will get 24px of padding on the bottom.
         </Typography>
+        
       </CardContent>
     </Card>
   );
