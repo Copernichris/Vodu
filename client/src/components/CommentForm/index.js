@@ -53,7 +53,7 @@ const CommentForm = ({ vodId }) => {
   };
 
   return (
-    <div style={{paddingLeft: '20px', paddingRight: '20px'}}>
+    <div>
       <h4 className="text-white">Create Comment</h4>
 
       {Auth.loggedIn() ? (
