@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-primary text-white flex ">
+    <header className="bg-primary" style={{display: 'flex', color: 'white', width: '100vw'}}>
       <div className="flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-white" to="/">
