@@ -27,7 +27,7 @@ const ProfileRightSideContent = () => {
 
   if (!user?.username) {
     return (
-      <main className="flex-row justify-center align-center">
+      <div className="flex-row justify-center align-center">
         <div className="col-8">
           <div className="card">
             <h4 className="text-center p-3 mb-2 mt-2">
@@ -36,12 +36,19 @@ const ProfileRightSideContent = () => {
             </h4>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <Card sx={{ marginTop: "35px", marginRight: "95px", backgroundColor: "#3e34a0", color: "white",}}>
+    <Card
+      sx={{
+        marginTop: "35px",
+        marginRight: "95px",
+        backgroundColor: "#3e34a0",
+        color: "white",
+      }}
+    >
       <CardContent sx={{ display: "flex", flexDirection: "column" }}>
         <Typography gutterBottom variant="h5" component="h2">
           {Auth.getProfile().data.username}'s Vod List

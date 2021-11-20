@@ -6,6 +6,9 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      bio
+      favGame
+      name
       vods {
         _id
         vodUrl
@@ -48,6 +51,9 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      bio
+      favGame
+      name
       vods {
         _id
         vodUrl
