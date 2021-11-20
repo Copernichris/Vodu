@@ -1,9 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-
 import VodList from "../components/VodList";
-import VodForm from "../components/VodForm";
-
 import { QUERY_VODS } from "../utils/queries";
 
 const Home = () => {
@@ -12,7 +9,6 @@ const Home = () => {
 
   return (
     <>
-      <VodForm />
       {loading ? (
         <div>Loading...</div>
       ) : (

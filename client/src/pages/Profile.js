@@ -7,14 +7,11 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
 const Profile = () => {
- 
   const { loading, data } = useQuery(QUERY_VODS);
   const vods = data?.vods || [];
 
-
-
   return (
-    <main className="flex-row justify-center align-center">
+    <div className="flex-row justify-center align-center">
       <Grid container spacing={2}>
         <Grid item xs={6} sx={{ display: "flex", flexDirection: "column" }}>
           <ProfileCardLeft />
@@ -25,7 +22,7 @@ const Profile = () => {
           <ProfileCardRight vods={vods} title="Popular Vods" />
         </Grid>
       </Grid>
-    </main>
+    </div>
   );
 };
 

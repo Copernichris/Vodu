@@ -16,7 +16,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const ProfileRightSideContent = ({
   vods,
   title,
-  userV,
   showTitle = true,
   showUsername = true,
 }) => {
@@ -65,8 +64,32 @@ const ProfileRightSideContent = ({
       }}
     >
       <CardContent sx={{ display: "flex", flexDirection: "column" }}>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography
+          sx={{ display: "flex", justifyContent: "center", align: "center" }}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
           {Auth.getProfile().data.username}'s Vod List
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          <div className="col-12 col-md-10 mb-5">
+            <VodList
+              vods={user.vods}
+              title={`${user.username}'s vods...`}
+              showTitle={true}
+              showUsername={true}
+            />
+          </div>
+        </Typography>
+
+        <Typography
+          sx={{ display: "flex", justifyContent: "center", align: "center" }}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
+          All Vods Listed
         </Typography>
 
         <ThemeProvider theme={darkTheme}>

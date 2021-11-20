@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-
 import { ADD_VOD } from "../../utils/mutations";
 import { QUERY_VODS, QUERY_ME } from "../../utils/queries";
-
 import Auth from "../../utils/auth";
 
 const VodForm = () => {
@@ -142,13 +139,13 @@ const VodForm = () => {
                   Add Vod
                 </button>
               </div>
-              {error && (
+              {/* {error && (
                 <div className="my-3 bg-danger text-white p-2">
                   <p className="justify-center align-center">
                     Something went wrong!
                   </p>
                 </div>
-              )}
+              )} */}
             </form>
           </div>
         </div>

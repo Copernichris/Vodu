@@ -30,7 +30,7 @@ body {
 main {
   min-height: calc(100vh - 114px);
   height: auto;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a; 
 }
 
 /**

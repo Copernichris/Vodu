@@ -31,6 +31,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -45,9 +46,19 @@ const resolvers = {
       }
 
       const token = signToken(user);
-
       return { token, user };
     },
+
+    editUser: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, args, {
+          new: true,
+        });
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
+
     addVod: async (parent, { vodUrl, vodTitle, description }, context) => {
       if (context.user) {
         const vod = await Vod.create({
@@ -72,7 +83,11 @@ const resolvers = {
           { _id: vodId },
           {
             $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username, timeStamp },
+              comments: {
+                commentText,
+                commentAuthor: context.user.username,
+                timeStamp,
+              },
             },
           },
           {
@@ -100,8 +115,7 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError('You need to be logged in!');
     // },
-       
-    
+
     removeVod: async (parent, { vodId }, context) => {
       if (context.user) {
         const vod = await Vod.findOneAndDelete({
