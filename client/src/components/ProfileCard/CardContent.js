@@ -62,21 +62,45 @@ const ProfileLeftSideContent = () => {
       }}
     >
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography
+          sx={{ display: "flex", justifyContent: "center", align: "center" }}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
           {Auth.getProfile().data.username}'s profile
-          <Avatar
-            sx={{ width: 100, height: 100, align: "center" }}
-            onClick={() => {
-              console.log("clickable Avatar!");
-            }}
-            src="https://res.cloudinary.com/retro-game-stop/image/upload/v1632282525/ynyjdyopetpzzkrkik6y.png"
-          ></Avatar>
           <EditProfile />
         </Typography>
-        <Typography variant="body2" color="white" component="p">
-          {user.name}
-          {user.favGame}
-          {user.bio}
+        <Avatar
+          sx={{
+            align: "center",
+            width: 100,
+            height: 100,
+            marginTop: 2,
+          }}
+          onClick={() => {
+            console.log("clickable Avatar!");
+          }}
+          src="https://res.cloudinary.com/retro-game-stop/image/upload/v1632282525/ynyjdyopetpzzkrkik6y.png"
+        ></Avatar>
+        <Typography color="white" component="p" sx={{ marginTop: 2 }}>
+          <div>
+            <p>
+              <strong>{user.name}</strong>
+            </p>
+          </div>
+          <div>
+            <p>
+              <em>Favorite Game: </em>
+              {user.favGame}
+            </p>
+          </div>
+          <div>
+            <p>
+              <em>Bio: </em>
+              {user.bio}
+            </p>
+          </div>
           <VodForm />
         </Typography>
       </CardContent>

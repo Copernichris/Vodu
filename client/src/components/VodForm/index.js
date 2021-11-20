@@ -139,13 +139,13 @@ const VodForm = () => {
                   Add Vod
                 </button>
               </div>
-              {error && (
+              {/* {error && (
                 <div className="my-3 bg-danger text-white p-2">
                   <p className="justify-center align-center">
                     Something went wrong!
                   </p>
                 </div>
-              )}
+              )} */}
             </form>
           </div>
         </div>
