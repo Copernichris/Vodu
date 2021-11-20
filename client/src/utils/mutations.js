@@ -24,6 +24,18 @@ export const ADD_USER = gql`
   }
 `;
 
+export const EDIT_USER = gql`
+  mutation editUser($bio: String, $favGame: String, $name: String) {
+    editUser(name: $name, favGame: $favGame, bio: $bio) {
+      _id
+      username
+      bio
+      favGame
+      name
+    }
+  }
+`;
+
 export const ADD_VOD = gql`
   mutation addVod($vodUrl: String!, $vodTitle: String!, $description: String!) {
     addVod(vodUrl: $vodUrl, vodTitle: $vodTitle, description: $description) {
@@ -42,7 +54,11 @@ export const ADD_VOD = gql`
 
 export const ADD_COMMENT = gql`
   mutation addComment($vodId: ID!, $commentText: String!, $timeStamp: String!) {
-    addComment(vodId: $vodId, commentText: $commentText, timeStamp: $timeStamp) {
+    addComment(
+      vodId: $vodId
+      commentText: $commentText
+      timeStamp: $timeStamp
+    ) {
       _id
       vodUrl
       vodAuthor
@@ -64,7 +80,7 @@ export const ADD_VOTES = gql`
     addVotes(commentId: $commentId, voteCount: $voteCount) {
       _id
       vodUrl
-      vodAuthor    
+      vodAuthor
       comments {
         _id
         commentText

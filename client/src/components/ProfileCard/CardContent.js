@@ -8,20 +8,20 @@ import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Avatar from "@mui/material/Avatar";
+import EditProfile from "../../pages/EditProfile";
 import VodForm from "../VodForm/index";
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Checkbox from "@mui/material/Checkbox";
+import IconButton from "@mui/material/IconButton";
 
 const ProfileLeftSideContent = () => {
+  const { username: userParam } = useParams();
 
-    const { username: userParam } = useParams();
-
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
   const user = data?.me || data?.user || {};
@@ -48,32 +48,40 @@ const ProfileLeftSideContent = () => {
       </main>
     );
   }
-  
-  
+
   return (
-    <Card sx={{maxWidth: 900, padding: 0, marginLeft: "135px", marginTop: "35px", backgroundColor: "#3e34a0", color: "white", align: "center"}}>
+    <Card
+      sx={{
+        maxWidth: 900,
+        padding: 0,
+        marginLeft: "135px",
+        marginTop: "35px",
+        backgroundColor: "#3e34a0",
+        color: "white",
+        align: "center",
+      }}
+    >
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
-        {Auth.getProfile().data.username}'s profile
-        <Avatar
-              sx={{ width: 100, height: 100, align: "center" }}
-              onClick={() => {
-                console.log("clickable Avatar!");
-              }}
-              src="https://res.cloudinary.com/retro-game-stop/image/upload/v1632282525/ynyjdyopetpzzkrkik6y.png"
-            ></Avatar>
+          {Auth.getProfile().data.username}'s profile
+          <Avatar
+            sx={{ width: 100, height: 100, align: "center" }}
+            onClick={() => {
+              console.log("clickable Avatar!");
+            }}
+            src="https://res.cloudinary.com/retro-game-stop/image/upload/v1632282525/ynyjdyopetpzzkrkik6y.png"
+          ></Avatar>
+          <EditProfile />
         </Typography>
         <Typography variant="body2" color="white" component="p">
-            
-        </Typography>
-        <Typography variant="body2" color="white" component="p">
-        <VodForm />
+          {user.name}
+          {user.favGame}
+          {user.bio}
+          <VodForm />
         </Typography>
       </CardContent>
     </Card>
   );
 };
-
-  
 
 export default ProfileLeftSideContent;
