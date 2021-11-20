@@ -53,6 +53,9 @@ A community where gamers can interact with each other in the form of comments wi
 
 [Deployed Application](https://vodu2.herokuapp.com/)
 
+## Home page
+
+![image](https://res.cloudinary.com/retro-game-stop/image/upload/v1637369152/VodU%20Profile%20icons/kgsfqx8ogdbzyuqqjlhz.png)
 
 #
 <br>
