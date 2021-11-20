@@ -4,12 +4,16 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Auth from "../../utils/auth";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useParams, Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import VodList from "../VodList/index";
+import CardMedia from "@mui/material/CardMedia";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const ProfileRightSideContent = () => {
+const ProfileRightSideContent = ({ vods, title, showTitle = true, showUsername = true }) => {
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -39,6 +43,11 @@ const ProfileRightSideContent = () => {
       </div>
     );
   }
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
 
   return (
     <Card
@@ -53,16 +62,67 @@ const ProfileRightSideContent = () => {
         <Typography gutterBottom variant="h5" component="h2">
           {Auth.getProfile().data.username}'s Vod List
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          <div className="col-12 col-md-10 mb-5">
-            <VodList
-              vods={user.vods}
-              title={`${user.username}'s vods...`}
-              showTitle={false}
-              showUsername={false}
-            />
-          </div>
-        </Typography>
+        
+        <ThemeProvider theme={darkTheme}> 
+        <Container sx={{ py: 8 }}>
+        <Grid container spacing={4}>
+          {vods &&
+            vods.map((vod) => (
+              <Grid item key={vod._id} xs={24}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      <Link className="purple-links" to={`/vods/${vod._id}`}>
+                        {vod.vodTitle} <br></br>
+                      </Link>
+                      {showUsername ? (
+                        <Link
+                          className="purple-links"
+                          to={`/profiles/${vod.vodAuthor}`}
+                        >
+                          <span style={{ fontSize: "1rem" }}>
+                            {vod.vodAuthor}
+                          </span>
+                        </Link>
+                      ) : (
+                        <>
+                          <span style={{ fontSize: "1rem" }}>
+                            {vod.vodAuthor}
+                          </span>
+                        </>
+                      )}
+                    </Typography>
+                  </CardContent>
+                  <CardContent sx={{ display: "flex", flexDirection: "row" }}>
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        // 16:9
+                        // pt: '56.25%',
+                        height: "auto",
+                        width: "30vw",
+                      }}
+                      src={
+                        "https://img.youtube.com/vi/" +
+                        vod.vodUrl.split("?v=").pop().split("&t").shift() +
+                        "/maxresdefault.jpg"
+                      }
+                      alt="titlegoeshere!"
+                    />
+                    <Typography sx={{ px: 3 }}>{vod.description}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+        </Grid>
+      </Container>
+      </ThemeProvider>
       </CardContent>
     </Card>
   );
