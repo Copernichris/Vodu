@@ -9,7 +9,7 @@
 - [Description](#description)
 - [User Story](#user-story)
 - [Link to Github Repo](#link-to-github-repo)
-- [Link to Deployed Application](#link-to-deployed-link)
+- [Link to Deployed Application](#link-to-deployed-application)
 - [Technologies](#technologies)
 - [Usage](#usage)
 - [Challenges](#challenges)
@@ -50,8 +50,12 @@ A community where gamers can interact with each other in the form of comments wi
 [Deployed Application](https://vodu2.herokuapp.com/)
 
 ## Home page
-
-![image](https://res.cloudinary.com/retro-game-stop/image/upload/v1637369152/VodU%20Profile%20icons/kgsfqx8ogdbzyuqqjlhz.png)
+![image](https://res.cloudinary.com/retro-game-stop/image/upload/v1637146506/React%20profile/rj8yuvbd9dwykjor1ob1.png)
+## Profile
+![image](https://res.cloudinary.com/retro-game-stop/image/upload/v1637417548/VodU%20Profile%20icons/bmnznegbx8jeg4lt8fts.png)
+## Video page
+![image](https://res.cloudinary.com/retro-game-stop/image/upload/v1637417377/VodU%20Profile%20icons/cfsdree7tmnoe24wo3o6.png)
+![image](https://res.cloudinary.com/retro-game-stop/image/upload/v1637417379/VodU%20Profile%20icons/irro83rtfoqqpdx4ctch.png)
 
 #
 <br>
