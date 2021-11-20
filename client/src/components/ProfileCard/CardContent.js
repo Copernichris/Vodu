@@ -9,7 +9,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Avatar from "@mui/material/Avatar";
 import EditProfile from "../../pages/EditProfile";
-
+import VodForm from "../VodForm/index";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -48,8 +48,7 @@ const ProfileLeftSideContent = () => {
       </main>
     );
   }
-  
-  
+
   return (
     <Card
       sx={{
@@ -78,6 +77,7 @@ const ProfileLeftSideContent = () => {
           {user.name}
           {user.favGame}
           {user.bio}
+          <VodForm />
         </Typography>
       </CardContent>
     </Card>
