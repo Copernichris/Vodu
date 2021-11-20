@@ -34,10 +34,6 @@ The goal of the website is to create a reddit/discord like format that is famili
 
 <br>
 
-#
-
-## User Story
-
 
 <br>
 <br>
@@ -51,7 +47,7 @@ The goal of the website is to create a reddit/discord like format that is famili
 
 # Link to Deployed Application
 
-[Deployed Application](https://vodu.herokuapp.com/)
+[Deployed Application](https://vodu2.herokuapp.com/)
 
 
 #
@@ -81,19 +77,7 @@ The goal of the website is to create a reddit/discord like format that is famili
 
 #
 #
-<br>
 
-# Usage
-
--
-
-# Challenges
-
--
-
-# Future Development
-
--
 
 
 # Contributors
