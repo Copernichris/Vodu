@@ -77,10 +77,19 @@ const ProfileRightSideContent = ({
             <VodList
               vods={user.vods}
               title={`${user.username}'s vods...`}
-              showTitle={false}
-              showUsername={false}
+              showTitle={true}
+              showUsername={true}
             />
           </div>
+        </Typography>
+
+        <Typography
+          sx={{ display: "flex", justifyContent: "center", align: "center" }}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
+          All Vods Listed
         </Typography>
 
         <ThemeProvider theme={darkTheme}>

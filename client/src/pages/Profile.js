@@ -2,8 +2,9 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import ProfileCardLeft from "../components/ProfileCard/CardContent";
 import ProfileCardRight from "../components/ProfileCard/VideoCardContent";
-import { QUERY_VODS } from "../utils/queries";
+import { QUERY_VODS, QUERY_USER, QUERY_ME } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
   const { loading, data } = useQuery(QUERY_VODS);
