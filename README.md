@@ -1,7 +1,7 @@
 
 # VodU App
 
-<img alt="Vodu" src="./client/public/images\vodu.png">
+
 <br>
 <br>
 
