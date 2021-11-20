@@ -64,7 +64,12 @@ const ProfileRightSideContent = ({
       }}
     >
       <CardContent sx={{ display: "flex", flexDirection: "column" }}>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography
+          sx={{ display: "flex", justifyContent: "center", align: "center" }}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
           {Auth.getProfile().data.username}'s Vod List
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
