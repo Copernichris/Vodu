@@ -1,7 +1,7 @@
 
 # VodU App
 
-
+<img alt="Vodu" src="./client/public/images\vodu.png">
 <br>
 <br>
 
@@ -37,10 +37,7 @@ The goal of the website is to create a reddit/discord like format that is famili
 #
 
 ## User Story
-
-```md
-
-```
+A community where gamers can interact with each other in the form of comments with upvotes and downvotes, watch videos of other users’ game play and provide critiques, and post videos of their own content for feedback and advice from other users.
 
 <br>
 <br>
@@ -54,7 +51,7 @@ The goal of the website is to create a reddit/discord like format that is famili
 
 # Link to Deployed Application
 
-[Deployed Application](https://vodu.herokuapp.com/)
+[Deployed Application](https://vodu2.herokuapp.com/)
 
 
 #
@@ -88,16 +85,34 @@ The goal of the website is to create a reddit/discord like format that is famili
 
 # Usage
 
--
+- The passion for gaming and a lack of good resources for non-fighting games. 
+- Make it easier for gamers to share and express their thoughts while watching games/videos. 
+- Give gamers a resource to receive feedback on their own techniques and share their techniques with other gamers.
+
 
 # Challenges
 
--
+- Github pulls/commits/ and push commits
+- Github merge conflicts and errors.
+- Implement toasts and commentroy from the video
+- Implement toasts with timestamps
+- Decide on which framework and library to work
+- Formatting the pages. 
+- Make the app mobile responsive. 
+- Multiple failing attempts to deploy to heroku
 
 # Future Development
 
--
 
+- Add more functions to the app overall design 
+- Allow users to delete/edit their comments
+- Implement APIs to add video content from gaming sites.
+- Add more pages to the app
+- Allow users to message and communicate with each others
+- Utilize more Material-UI to replace bootstrap and CSS
+
+
+<br>
 
 # Contributors
 <table>
