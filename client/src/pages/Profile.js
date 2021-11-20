@@ -1,103 +1,29 @@
 import React from "react";
-import { Redirect, useParams } from "react-router-dom";
+import Grid from "@mui/material/Grid";
+import ProfileCardLeft from "../components/ProfileCard/CardContent";
+import ProfileCardRight from "../components/ProfileCard/VideoCardContent";
+import { QUERY_VODS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
-import VodForm from '../components/VodForm';
-import VodList from '../components/VodList';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box'
-
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
-
-import Auth from "../utils/auth";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-
-
-  
-
-
 const Profile = () => {
-  const { username: userParam } = useParams();
-
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
-  });
-
-  //Dark Theme
-  const theme = createTheme({
-    palette: {
-      type: 'dark',
-      
-    },
-})
-
-  const user = data?.me || data?.user || {};
-  // redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/me" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user?.username) {
-    return (
-      <main className="flex-row justify-center align-center">
-        <div className="col-8">
-          <div className="card">
-            <h4 className="text-center p-3 mb-2 mt-2">
-              You need to be logged in to see this. Use the navigation links
-              above to login or signup!
-            </h4>
-          </div>
-        </div>
-      </main>
-    );
-  }
-
+ 
+  const { loading, data } = useQuery(QUERY_VODS);
+  const vods = data?.vods || [];
+  
   return (
-    <ThemeProvider theme={theme}>
-      <Box style={{
-        height: '100%',
-        width: '100%',
-        
-      }}>
-      <main className="flex-row justify-center align-center">
-      <div className="col-md-8">
-        <div className="card">
-          <h2 className="card-header bg-black text-center text-white p-3 mb-2">
-            {Auth.getProfile().data.username}'s profile
-          </h2>
+    <main className="flex-row justify-center align-center">
+      <Grid container spacing={2}>
+        <Grid item xs={6} sx={{ display: "flex", flexDirection: "column" }}>
+          <ProfileCardLeft />
+        </Grid>
 
-
-        <div className="col-12 col-md-10 mb-5">
-          <VodList
-            vods={user.vods}
-            title={`${user.username}'s vods...`}
-            showTitle={false}
-            showUsername={false}
-          />
-        </div>
-        {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: '1px dotted #1a1a1a' }}
-          >
-            <VodForm />
-
-            </div>
-          )}
-        </div>
-      </div>
+        {/* this section controls the right side of the profile page. (Vods & Vod uploads) */}
+        <Grid item xs={6} sx={{ display: "flex", flexDirection: "column" }}>
+          <ProfileCardRight vods={vods} title="Popular Vods"/>
+        </Grid>
+      </Grid>
     </main>
-        
-    </Box>
-    </ThemeProvider>
-    
   );
-          
 };
 
 export default Profile;

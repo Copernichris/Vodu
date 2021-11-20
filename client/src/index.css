@@ -30,7 +30,7 @@ body {
 main {
   min-height: calc(100vh - 114px);
   height: auto;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a; 
 }
 
 /**
@@ -413,6 +413,53 @@ p {
   text-decoration: underline;
 }
 
+.container {
+  background-color: #1a1a1a;
+}
+
+.purple-links {
+  color: #3e34a0;
+}
+
+.form-section {
+  margin: 0 auto;
+  padding: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrapper {
+  padding: 10px 10px;
+}
+
+.form-description-label {
+  font-size: 0.75rem;
+  display: inline-block;
+}
+
+.vod-form-label {
+  display: inline-block;
+  width: 150px;
+}
+
+.add-vod-btn {
+  padding: 5px 5px;
+}
+
+.add-vod-btn:hover {
+  text-decoration: underline;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 h1 {
   font-size: 2.25rem;
 }
@@ -439,7 +486,7 @@ h6 {
 
 p {
   font-size: 1.1rem;
-  margin: 0 0 1rem;
+  margin: 0 0;
   line-height: 1.5;
 }
 
@@ -1123,7 +1170,7 @@ a:hover {
 }
 
 .card {
-  border: 1px solid #1a1a1a;
+  /* border: 1px solid #1a1a1a; */
   margin-bottom: 1rem;
 }
 

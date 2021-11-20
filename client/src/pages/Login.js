@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
-
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-
 import Auth from "../utils/auth";
 
 const Login = (props) => {
@@ -115,8 +112,10 @@ const Login = (props) => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
+              <div className="my-3 bg-danger text-white p-2">
+                <p className="justify-center align-center">
+                  Something went wrong!
+                </p>
               </div>
             )}
           </div>

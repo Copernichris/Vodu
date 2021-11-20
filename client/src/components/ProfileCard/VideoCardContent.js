@@ -1,27 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
-import CameraIcon from "@mui/icons-material/PhotoCamera";
+// import { makeStyles } from "@mui/material/styles";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Auth from "../../utils/auth";
+import { Redirect, useParams, Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import VodList from "../VodList/index";
+import CardMedia from "@mui/material/CardMedia";
+import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const VodList = ({ vods, title, showTitle = true, showUsername = true }) => {
-  if (!vods.length) {
+const ProfileRightSideContent = ({ vods, title, showTitle = true, showUsername = true }) => {
+  const { username: userParam } = useParams();
+
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
+  const user = data?.me || data?.user || {};
+  // redirect to personal profile page if username is yours
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Redirect to="/me" />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user?.username) {
     return (
-      <div className="justify-center align-center">
-        <h3 className="text-white text-center">No Vods</h3>
-      </div>
+      <main className="flex-row justify-center align-center">
+        <div className="col-8">
+          <div className="card">
+            <h4 className="text-center p-3 mb-2 mt-2">
+              You need to be logged in to see this. Use the navigation links
+              above to login or signup!
+            </h4>
+          </div>
+        </div>
+      </main>
     );
   }
   const darkTheme = createTheme({
@@ -31,8 +50,14 @@ const VodList = ({ vods, title, showTitle = true, showUsername = true }) => {
   });
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Container sx={{ py: 8 }}>
+    <Card sx={{ marginTop: "35px", marginRight: "95px", backgroundColor: "#3e34a0", color: "white",}}>
+      <CardContent sx={{ display: "flex", flexDirection: "column" }}>
+        <Typography gutterBottom variant="h5" component="h2">
+          {Auth.getProfile().data.username}'s Vod List
+        </Typography>
+        
+        <ThemeProvider theme={darkTheme}> 
+        <Container sx={{ py: 8 }}>
         <Grid container spacing={4}>
           {vods &&
             vods.map((vod) => (
@@ -90,8 +115,10 @@ const VodList = ({ vods, title, showTitle = true, showUsername = true }) => {
             ))}
         </Grid>
       </Container>
-    </ThemeProvider>
+      </ThemeProvider>
+      </CardContent>
+    </Card>
   );
 };
 
-export default VodList;
+export default ProfileRightSideContent;
